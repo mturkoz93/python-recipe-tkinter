@@ -1,7 +1,10 @@
 import tkinter as tk
 from numpy import random
+import requests
+from numpy import random
 
 from data.colors import COLORS
+from data.config import BASE_URL
 
 class ShuffleRecipe:
 
@@ -42,7 +45,7 @@ class ShuffleRecipe:
         # button widget
         tk.Button(
             self.frame,
-            text="SHUFFLE",
+            text="SHUFFLE RECIPE",
             font=("TkHeadingFont", 20),
             bg="#28393a",
             fg="white",
@@ -52,14 +55,49 @@ class ShuffleRecipe:
             command=lambda: self.random_recipe()
         ).pack(pady=20)
 
+    def random_recipe(self):
+        self.clear_widgets(self.frame)
+        self.frame_content()
+
+        datas = self.getRecipes()
+        random_number = random.randint(0, len(datas))
+
+        title, ingredients = self.pre_process(datas, random_number)
+
         tk.Label(
             self.frame, 
-            text="---",
+            text=title,
             bg=COLORS.green,
             fg="white",
-            font=("TkMenuFont", 14)
-            ).pack()
+            font=("TkHeadingFont", 20)
+            ).pack(pady=25)
 
-    def random_recipe(self):
-        random_number = random.randint(0, 100)
-        print("Random number: " + str(random_number))
+        for i in ingredients:
+            tk.Label(
+                self.frame, 
+                text=i,
+                bg=COLORS.green,
+                fg="white",
+                font=("TkMenuFont", 14)
+                ).pack()
+
+
+    def pre_process(self, datas, index):
+        ingredients = []
+        title = datas[index]["title"]
+        steps = datas[index]["steps"]
+
+        for step in steps:
+            ingredients.append(step)
+
+        return title, ingredients
+
+    def getRecipes(self):
+        url = BASE_URL + "recipes"
+        response = requests.get(url)
+        
+        return response.json()
+
+    def clear_widgets(self, frame):
+        for widget in frame.winfo_children():
+            widget.destroy()

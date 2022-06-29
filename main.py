@@ -1,10 +1,6 @@
 import tkinter as tk
-from turtle import right
 from PIL import ImageTk
-import requests
-from numpy import random
 
-from data.config import BASE_URL
 from widget import Root, LeftFrame
 from widget.right_frame.RightFrame import RightFrame
 
@@ -49,15 +45,7 @@ def method1():
         command=lambda: load_frame2()
     ).pack(pady=20)
 
-def method2():
-    random_number = random.randint(0, 100)
-    print("Random number: " + str(random_number))
 
-def getRecipes():
-    url = BASE_URL + "recipes"
-    response = requests.get(url)
-    
-    return response.json()
 
 
 # *************************************

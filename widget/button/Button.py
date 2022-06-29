@@ -13,6 +13,7 @@ class Button:
         name, 
         text, 
         fg, bg, width, height, 
+        handle_click,
         padx=0, pady=0,
         side=tk.TOP,
         ):
@@ -31,6 +32,7 @@ class Button:
         self.pady = pady
         self.side = side
         self.add_button()
+        self.event_bind(handle_click)
 
     def add_button(self):
         self.button.configure(font=("Arial", 12))
@@ -39,3 +41,6 @@ class Button:
             pady = self.pady,
             side = self.side
         )
+
+    def event_bind(self, handle_click):
+        self.button.bind("<Button-1>", handle_click)

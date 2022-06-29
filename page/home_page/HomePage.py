@@ -27,7 +27,7 @@ class HomePage:
             bg=COLORS.orange,
         )
         # t.place(x=315, y=50)
-        t.pack(fill=tk.X)
+        t.pack(fill=tk.X, pady=(0, 10))
 
         self.load_logo()
 
@@ -37,12 +37,12 @@ class HomePage:
             bg=COLORS.green,
             fg="white",
             font=("TkMenuFont", 14)
-            ).pack(pady=20)
+            ).pack(pady=(10, 0))
 
     def load_logo(self):
         # logo widget
         logo_img = ImageTk.PhotoImage(file="assets/Recipe_logo.png")
         logo_widget = tk.Label(self.frame, image=logo_img, bg=COLORS.root_bg_color)
         logo_widget.image = logo_img
-        logo_widget.pack(pady=10)
+        logo_widget.pack()
         

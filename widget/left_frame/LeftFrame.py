@@ -11,7 +11,7 @@ class LeftFrame:
         self.frame = tk.Frame(
             master=root,
             name=name,
-            bg=COLORS.green
+            bg=COLORS.gray
         )
         self.master = root
         self.add_frame()
@@ -56,8 +56,8 @@ class LeftFrame:
                     self.frame, 
                     menu_key, 
                     menu_text, 
-                    COLORS.orange, 
-                    COLORS.black,
+                    COLORS.white, 
+                    COLORS.green,
                     18, 2,
                     self.handle_click
                     )
@@ -66,11 +66,11 @@ class LeftFrame:
         # clicked button : event.widget
         # make black all buttons
         for child in event.widget.master.winfo_children():
-            child.configure(bg=COLORS.black, fg=COLORS.orange)
+            child.configure(bg=COLORS.green, fg=COLORS.white)
         
         # change selected button color
         LeftFrame.set_selected_button_color(event.widget)
 
 
     def set_selected_button_color(button):
-        button.configure(bg=COLORS.orange, fg=COLORS.white)
+        button.configure(bg=COLORS.yellow, fg=COLORS.black)

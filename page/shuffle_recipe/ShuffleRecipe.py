@@ -1,5 +1,6 @@
 import tkinter as tk
-from tkinter import ttk
+from numpy import random
+
 from data.colors import COLORS
 
 class ShuffleRecipe:
@@ -26,9 +27,39 @@ class ShuffleRecipe:
             text="Shuffle Recipe",
             font=("Helvetica", 18, "bold"),
             bg=COLORS.orange,
+            fg=COLORS.black
         )
-        # t.place(x=315, y=50)
-        t.pack(fill=tk.X)
+        t.pack(fill=tk.X, pady=(0, 30))
 
-    def create_recipe_card(self):
-        pass
+        tk.Label(
+            self.frame, 
+            text="Click the shuffle button for new recipe.",
+            bg=COLORS.light_green,
+            fg=COLORS.black,
+            font=("TkMenuFont", 14)
+            ).pack(pady=5)
+
+        # button widget
+        tk.Button(
+            self.frame,
+            text="SHUFFLE",
+            font=("TkHeadingFont", 20),
+            bg="#28393a",
+            fg="white",
+            cursor="hand2",
+            activebackground="#badee2",
+            activeforeground="black",
+            command=lambda: self.random_recipe()
+        ).pack(pady=20)
+
+        tk.Label(
+            self.frame, 
+            text="---",
+            bg=COLORS.green,
+            fg="white",
+            font=("TkMenuFont", 14)
+            ).pack()
+
+    def random_recipe(self):
+        random_number = random.randint(0, 100)
+        print("Random number: " + str(random_number))

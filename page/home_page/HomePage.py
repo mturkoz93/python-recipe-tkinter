@@ -27,17 +27,17 @@ class HomePage:
             bg=COLORS.orange,
         )
         # t.place(x=315, y=50)
-        t.pack(fill=tk.X, pady=(0, 10))
+        t.pack(fill=tk.X, pady=(0, 30))
 
         self.load_logo()
 
         tk.Label(
             self.frame, 
             text="ready for your random recipe?",
-            bg=COLORS.green,
-            fg="white",
+            bg=COLORS.light_green,
+            fg=COLORS.black,
             font=("TkMenuFont", 14)
-            ).pack(pady=(10, 0))
+            ).pack(pady=(20, 0))
 
     def load_logo(self):
         # logo widget

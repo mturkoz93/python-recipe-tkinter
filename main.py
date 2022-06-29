@@ -1,10 +1,12 @@
 import tkinter as tk
+from turtle import right
 from PIL import ImageTk
 import requests
 from numpy import random
 
 from data.config import BASE_URL
 from widget import Root, LeftFrame
+from widget.right_frame.RightFrame import RightFrame
 
 
 def method1():
@@ -68,6 +70,7 @@ main_root = Root("Tkinter Recipe App")
 left_frame = LeftFrame(main_root.root, 'leftFrame')
 
 # Right window
+right_frame = RightFrame(main_root.root, 'rightFrame')
 
 # Start mainloop
 main_root.start_root()

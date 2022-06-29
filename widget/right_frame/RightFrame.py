@@ -1,5 +1,6 @@
 import tkinter as tk
 from page.home_page.HomePage import HomePage
+from page.recipe_list.RecipeList import RecipeList
 
 from data.colors import COLORS
 
@@ -20,9 +21,21 @@ class RightFrame:
         self.frame.pack(side=self.side, fill=tk.BOTH, expand=True)
 
     def frame_content(self, page_name="homePage"):
-        if page_name == "homePage":
-            HomePage(self.frame, COLORS.root_bg_color)
-        elif page_name == "createRecipe":
-            pass
-        elif page_name == "exit":
-            pass
+        try:
+            frame = self.frame
+        except:
+            frame = self
+        finally:
+            if page_name == "homePage":
+                HomePage(frame, COLORS.root_bg_color)
+            elif page_name == "recipeList":
+                RecipeList(frame, COLORS.root_bg_color)
+            elif page_name == "createRecipe":
+                pass
+            elif page_name == "exit":
+                pass
+
+    def destroy_children(frame):
+        # destroy frame children
+        for child in frame.winfo_children():
+            child.destroy()

@@ -3,6 +3,7 @@ from data.colors import COLORS
 from data.menus import MENU
 
 from widget.button.Button import Button
+from widget.right_frame.RightFrame import RightFrame
 
 class LeftFrame:
 
@@ -26,6 +27,15 @@ class LeftFrame:
     # event comes from button click
     def handle_click(self, event):
         self.manage_button_colors(event)
+        page_name = str(event.widget).split(".")[2]
+
+        # get right frame
+        rightFrame = self.master.children["rightFrame"]
+        # destroy children of rightFrame
+        RightFrame.destroy_children(rightFrame)
+        # open a page
+        RightFrame.frame_content(rightFrame, page_name)
+
 
     def add_menus(self):
         # add with loop

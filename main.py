@@ -1,6 +1,7 @@
 import tkinter as tk
 from PIL import ImageTk
 import requests
+from numpy import random
 
 
 bg_colour = "#3d6466"
@@ -37,17 +38,22 @@ def load_frame1():
     ).pack(pady=20)
 
 def load_frame2():
-    print("Hello mustafa")
+    random_number = random.randint(0, 100)
+    print("Random number: " + str(random_number))
 
 
 # initiallize app
 root = tk.Tk()
 
 root.title("Tkinter Recipe App")
+
 # root.eval("tk::PlaceWindow . center")
+
+# place app in the center of the screen
 x = root.winfo_screenwidth() // 2
 y = int(root.winfo_screenheight() * 0.1)
 root.geometry('500x600+' + str(x) + '+' + str(y))
+
 # root.geometry('600x400+10+20') # "widthxheight+XPOS+YPOS"
 
 # create a frame widget

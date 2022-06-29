@@ -4,7 +4,7 @@ import requests
 from numpy import random
 
 from widget import Root
-from .data.config import BASE_URL
+from data.config import BASE_URL
 
 
 def method1():

@@ -17,6 +17,7 @@ class ShuffleRecipe:
         )
         self.side = side
         self.recipes = []
+        self.random_number = -1
         
         self.add_frame()
         self.frame_content()
@@ -34,14 +35,6 @@ class ShuffleRecipe:
         )
         t.pack(fill=tk.X, pady=(0, 30))
 
-        tk.Label(
-            self.frame, 
-            text="Click the shuffle button for new recipe.",
-            bg=COLORS.light_green,
-            fg=COLORS.black,
-            font=("TkMenuFont", 14)
-            ).pack(pady=5)
-
         # button widget
         tk.Button(
             self.frame,
@@ -56,30 +49,44 @@ class ShuffleRecipe:
         ).pack(pady=20)
 
     def random_recipe(self):
-        self.clear_widgets(self.frame)
-        self.frame_content()
+        try:
+            
+            datas = self.getRecipes()
 
-        datas = self.getRecipes()
-        random_number = random.randint(0, len(datas))
+            new_random_number = random.randint(0, len(datas))
+            print("new_random_number: " + str(new_random_number))
+            print("self_random_number: " + str(self.random_number))
 
-        title, ingredients = self.pre_process(datas, random_number)
+            if str(new_random_number) == str(self.random_number):
+                self.random_recipe()
+                return False
 
-        tk.Label(
-            self.frame, 
-            text=title,
-            bg=COLORS.green,
-            fg="white",
-            font=("TkHeadingFont", 20)
-            ).pack(pady=25)
+            self.random_number = new_random_number
 
-        for i in ingredients:
+            title, ingredients = self.pre_process(datas, self.random_number)
+            
+            self.clear_widgets(self.frame)
+            self.frame_content()
+
             tk.Label(
                 self.frame, 
-                text=i,
+                text=title,
                 bg=COLORS.green,
                 fg="white",
-                font=("TkMenuFont", 14)
-                ).pack()
+                font=("TkHeadingFont", 20)
+                ).pack(pady=25)
+
+            for i in ingredients:
+                tk.Label(
+                    self.frame, 
+                    text=i,
+                    bg="#28393a",
+                    fg="white",
+                    font=("TkMenuFont", 14)
+                    ).pack(fill="both")
+        except Exception as ex:
+            print(ex)
+            return False
 
 
     def pre_process(self, datas, index):
@@ -95,6 +102,12 @@ class ShuffleRecipe:
     def getRecipes(self):
         url = BASE_URL + "recipes"
         response = requests.get(url)
+        print(response.text)
+        print("Status code: " + str(response.status_code))
+
+        if response.status_code != 200:
+            print("There is an error!")
+            raise
         
         return response.json()
 

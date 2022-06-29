@@ -1,6 +1,7 @@
 import tkinter as tk
 from page.home_page.HomePage import HomePage
 from page.shuffle_recipe.ShuffleRecipe import ShuffleRecipe
+from page.create_recipe.CreateRecipe import CreateRecipe
 
 from data.colors import COLORS
 
@@ -31,7 +32,7 @@ class RightFrame:
             elif page_name == "shuffleRecipe":
                 ShuffleRecipe(frame, COLORS.root_bg_color)
             elif page_name == "createRecipe":
-                pass
+                CreateRecipe(frame, COLORS.root_bg_color)
             elif page_name == "exit":
                 frame.quit()
 

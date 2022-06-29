@@ -20,6 +20,6 @@ class Root:
 
     def set_height(self):
         # place app in the center of the screen
-        x = self.root.winfo_screenwidth() // 2
+        x = self.root.winfo_screenwidth() // 4
         y = int(self.root.winfo_screenheight() * 0.1)
         self.root.geometry(f'{ROOT_WIDTH}x{ROOT_HEIGTH}+' + str(x) + '+' + str(y))

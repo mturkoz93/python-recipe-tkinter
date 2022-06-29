@@ -66,11 +66,14 @@ class LeftFrame:
         # clicked button : event.widget
         # make black all buttons
         for child in event.widget.master.winfo_children():
-            child.configure(bg=COLORS.green, fg=COLORS.white)
+            if str(child) == ".leftFrame.exit":
+                pass
+            else:
+                child.configure(bg=COLORS.green, fg=COLORS.white)
         
         # change selected button color
         LeftFrame.set_selected_button_color(event.widget)
 
 
     def set_selected_button_color(button):
-        button.configure(bg=COLORS.yellow, fg=COLORS.black)
+        button.configure(bg=COLORS.orange, fg=COLORS.black)

@@ -3,8 +3,8 @@ from PIL import ImageTk
 import requests
 from numpy import random
 
-from widget import Root
 from data.config import BASE_URL
+from widget import Root, LeftFrame
 
 
 def method1():
@@ -62,14 +62,15 @@ def getRecipes():
 
 
 # Root window
-root = Root("Tkinter Recipe App")
+main_root = Root("Tkinter Recipe App")
 
 # Left window
+left_frame = LeftFrame(main_root.root, 'leftFrame')
 
 # Right window
 
 # Start mainloop
-root.start_root()
+main_root.start_root()
 
 
 # *************************************

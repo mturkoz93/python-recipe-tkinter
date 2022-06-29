@@ -1,8 +1,67 @@
 import tkinter as tk
+from PIL import ImageTk
+
+from widget import Root, LeftFrame
+from widget.right_frame.RightFrame import RightFrame
 
 
-window = tk.Tk()
-window.title('Tkinter Recipe App')
-window.geometry('600x400')
+def method1():
+    frame1 = tk.Frame(master=root, width=200, height=100, bg="red")
+    frame1.pack(fill=tk.BOTH, side=tk.LEFT, expand=True)
+    # frame1.place(relx=0.1, rely=0.1, relwidth=0.8, relheight=0.8)
 
-window.mainloop()
+    frame2 = tk.Frame(master=root, width=100, bg="yellow")
+    frame2.pack(fill=tk.BOTH, side=tk.LEFT, expand=True)
+
+    label1 = tk.Label(master=frame1, text="I'm at (0, 0)", bg="blue", fg="white")
+    label1.place(x=1, y=0)
+
+    # logo widget
+    logo_img = ImageTk.PhotoImage(file="assets/Recipe_logo.png")
+    logo_widget = tk.Label(frame1, image=logo_img, bg="green")
+    logo_widget.image = logo_img
+    logo_widget.pack()
+
+
+    # instructions widget
+    tk.Label(
+        frame1, 
+        text="ready for your random recipe?",
+        bg="green",
+        fg="white",
+        font=("TkMenuFont", 14)
+        ).pack()
+
+    # button widget
+    tk.Button(
+        frame1,
+        text="SHUFFLE",
+        font=("TkHeadingFont", 20),
+        bg="#28393a",
+        fg="white",
+        cursor="hand2",
+        activebackground="#badee2",
+        activeforeground="black",
+        command=lambda: load_frame2()
+    ).pack(pady=20)
+
+
+
+
+# *************************************
+
+
+# Root window
+main_root = Root("Tkinter Recipe App")
+
+# Left window
+left_frame = LeftFrame(main_root.root, 'leftFrame')
+
+# Right window
+right_frame = RightFrame(main_root.root, 'rightFrame')
+
+# Start mainloop
+main_root.start_root()
+
+
+# *************************************

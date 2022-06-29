@@ -45,8 +45,8 @@ class LeftFrame:
                     self.frame, 
                     menu_key, 
                     menu_text, 
-                    COLORS.orange, 
-                    COLORS.black,
+                    COLORS.white,
+                    COLORS.red, 
                     18, 2,
                     self.handle_click, 
                     0, 0, tk.BOTTOM

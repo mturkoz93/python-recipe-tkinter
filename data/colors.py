@@ -9,3 +9,4 @@ class COLORS:
     black = "black"
     white = "white"
     orange = "orange"
+    red = "red"

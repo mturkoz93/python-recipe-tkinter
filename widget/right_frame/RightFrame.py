@@ -1,6 +1,6 @@
 import tkinter as tk
 from page.home_page.HomePage import HomePage
-from page.recipe_list.RecipeList import RecipeList
+from page.shuffle_recipe.ShuffleRecipe import ShuffleRecipe
 
 from data.colors import COLORS
 
@@ -28,12 +28,12 @@ class RightFrame:
         finally:
             if page_name == "homePage":
                 HomePage(frame, COLORS.root_bg_color)
-            elif page_name == "recipeList":
-                RecipeList(frame, COLORS.root_bg_color)
+            elif page_name == "shuffleRecipe":
+                ShuffleRecipe(frame, COLORS.root_bg_color)
             elif page_name == "createRecipe":
                 pass
             elif page_name == "exit":
-                pass
+                frame.quit()
 
     def destroy_children(frame):
         # destroy frame children

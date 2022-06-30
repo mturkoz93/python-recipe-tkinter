@@ -21,11 +21,10 @@ pip install requests
 ```
 
 # Pictures
-![image](https://user-images.githubusercontent.com/14320133/176613925-e9482212-5574-4a54-b582-ae241209dbfb.png)
+![image](https://user-images.githubusercontent.com/14320133/176682587-2db7ea30-6aaf-4a09-918f-ce36e4211ebd.png)
 
-![image](https://user-images.githubusercontent.com/14320133/176613969-ee892b7a-de65-4872-b3f9-0dee2078d2fc.png)
+![image](https://user-images.githubusercontent.com/14320133/176682683-6a5d0c1d-2514-41b1-8b0c-a29e02962581.png)
 
-![image](https://user-images.githubusercontent.com/14320133/176617277-57ff4a3a-092c-4c1d-b768-a40b6ca2b89e.png)
+![image](https://user-images.githubusercontent.com/14320133/176682836-9ce01f9e-9e33-4ecd-8501-53faed5e1400.png)
 
-![image](https://user-images.githubusercontent.com/14320133/176618248-7111c5f9-14fd-489e-9065-18e8b4d28a1a.png)
-
+![image](https://user-images.githubusercontent.com/14320133/176683044-c880445b-aa8c-4236-852e-2a96a78409fd.png)

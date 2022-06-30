@@ -1,6 +1,5 @@
 import tkinter as tk
 import requests
-from numpy import random
 
 from data.colors import COLORS
 from data.config import BASE_URL
@@ -48,6 +47,7 @@ class CreateRecipe:
 
     def create_recipe(self):
         new_recipes = [
+            # Turkish
             {
                 "title": "Sigara Böreği",
                 "steps": ["1 kilo yufka", "Yarım kilo lor", "Sıvı yağ", "Tuz", "Karabiber"]
@@ -67,6 +67,27 @@ class CreateRecipe:
             {
                 "title": "Fırında Patates Mücver",
                 "steps": ["6 adet orta boy patates", "1 adet orta boy soğan", "3 adet yumurta", "1 çay bardağı sıvı yağ"]
+            },
+            # English
+            {
+                "title": "Cake Pie",
+                "steps": ["1 kilo of dough", "Half kilo of curd", "Oil", "Salt", "Pepper"]
+            },
+            {
+                "title": "Dairy Cocoa Wet Cake",
+                "steps": ["1 cup sugar", "4 eggs", "2.5 cups flour", "1 cup oil", "3 tablespoons cocoa"]
+            },
+            {
+                "title": "Aubergine Chip Pastry",
+                "steps": ["3 daily phyllo dough", "3 eggplants", "1 large onion", "2 large tomatoes grated", "2-3 green peppers"]
+            },
+            {
+                "title": "Cheese Sesame Flavor Balls",
+                "steps": ["250 g margarine", "2 tablespoons granulated sugar", "2 tablespoons vinegar", "2 tablespoons oil"]
+            },
+            {
+                "title": "Baked Potato Mucver",
+                "steps": ["6 medium potatoes", "1 medium onion", "3 eggs", "1 tea glass of oil"]
             },
         ]
         try:

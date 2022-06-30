@@ -1,5 +1,4 @@
 import tkinter as tk
-from numpy import random
 import requests
 from numpy import random
 
